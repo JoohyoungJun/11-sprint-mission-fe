@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 
-button {
+button,
+button-submit-login,
+button-submit-signup {
   display: flex;
   height: 56px;
   padding: 16px 124px;
