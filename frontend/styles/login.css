@@ -20,7 +20,7 @@
 
 .login-logo-text {
   color: var(--brand-blue, #3692ff);
-  font-family: "ROKAF Sans";
+  font-family: 'ROKAF Sans';
   font-size: 66.344px;
   font-style: normal;
   font-weight: 700;
@@ -168,4 +168,38 @@ label {
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
+}
+
+@media (max-width: 743px) {
+  .login-box {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .login-logo {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .login-main,
+  .login-main-top,
+  .inputs,
+  label {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  input,
+  .button-submit-login,
+  .button-submit-signup,
+  .login-main-mid {
+    width: 100%;
+  }
+
+  .mid-container {
+    width: 100%;
+  }
 }

@@ -79,7 +79,7 @@ body {
 
 .link-home {
   color: #3692ff;
-  font-family: "ROKAF Sans";
+  font-family: 'ROKAF Sans';
   font-size: 25.633px;
   font-style: normal;
   font-weight: 700;
@@ -189,4 +189,30 @@ footer {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+}
+
+/* tablet size */
+@media (max-width: 1199px) {
+  .navbar {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Mobile size */
+@media (max-width: 743px) {
+  .navbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
