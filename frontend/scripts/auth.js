@@ -54,8 +54,11 @@ if (loginEmail && loginPw && loginBtn && loginEmailError && loginPwError) {
 
   const updateLoginBtn = () => {
     // 둘 다 유효해야
-    const ok = validateEmail() && validatePW();
-    loginBtn.disabled = !ok;
+    if (!validateEmail() || !validatePW()) {
+      loginBtn.disabled = true;
+    } else {
+      loginBtn.disabled = false;
+    }
   };
 
   // input(타이핑) 시 버튼 갱신
