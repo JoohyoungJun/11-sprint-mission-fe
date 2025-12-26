@@ -102,9 +102,15 @@ label {
   line-height: 32px; /* 160% */
 }
 
-.button-submit-login:hover,
-.button-submit-signup:hover {
+.button-submit-login:not(:disabled):hover,
+.button-submit-signup:not(:disabled):hover {
   background-color: #3692ff;
+}
+
+.button-submit-login:disabled,
+.button-submit-signup:disabled {
+  background: var(--Cool-Gray-400, #9ca3af);
+  cursor: not-allowed;
 }
 
 .login-main-mid {
@@ -202,4 +208,20 @@ label {
   .mid-container {
     width: 100%;
   }
+}
+
+/* error msg */
+.err-msg {
+  color: var(--error-red, #f74747);
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 2px;
+}
+
+.input-error {
+  color: #f74747;
+  border: 1px solid #f74747 !important;
 }

@@ -84,21 +84,31 @@
               <input
                 name="email"
                 type="email"
+                id="login-email"
                 placeholder="이메일을 입력해주세요"
                 required
               />
             </label>
-
+            <p class="err-msg" id="login-email-err-msg"></p>
             <label>
               비밀번호
               <input
                 name="password"
                 type="password"
+                id="login-pw"
                 placeholder="비밀번호를 입력해주세요"
                 required
               />
+              <p class="err-msg" id="login-pw-err-msg"></p>
             </label>
-            <button class="button-submit-login" type="submit">로그인</button>
+            <button
+              class="button-submit-login"
+              id="login-btn"
+              type="submit"
+              disabled
+            >
+              로그인
+            </button>
           </form>
           <!-- <input class="button-submit-login" type="submit" value="로그인" /> -->
         </div>
@@ -129,5 +139,6 @@
         </div>
       </div>
     </div>
+    <script src="./scripts/auth.js" defer></script>
   </body>
 </html>
