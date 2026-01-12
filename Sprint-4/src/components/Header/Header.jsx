@@ -1,4 +1,5 @@
 import logo from '../../assets/logo-with-text.svg'; // '../assets/logo.png'
+import { ItemsPage } from '../Items/ItemsPage';
 
 export function Header() {
   return (
@@ -22,7 +23,7 @@ export function Header() {
               자유게시판
             </a>
             <a
-              href="/"
+              href="/items"
               className="ml-4 text-gray-700 font-medium hover:text-black"
             >
               중고마켓

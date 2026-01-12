@@ -1,27 +1,21 @@
+import { BrowserRouter, Routes, Route } from 'react-router';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { BestProductList } from './components/Items/BestProductList';
-import likeIcon from './assets/icons/like.svg';
-import { ProductListSection } from './components/Items/ProductListSection';
+import { MainPage } from './components/MainPage/MainPage';
+import { ItemsPage } from './components/Items/ItemsPage';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <main className="grow max-w-300 mx-auto mt-[26px]">
-        <h1 className="sr-only">중고마켓 - 판다마켓</h1>
-        <section>
-          <h2 className="text-[#111827] font-bold text-[20px] leading-8">
-            베스트 상품
-          </h2>
-          <BestProductList />
-        </section>
-        <section className="mt-[40px]">
-          <ProductListSection />
-        </section>
-      </main>
+
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/items" element={<ItemsPage />} />
+      </Routes>
+
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
