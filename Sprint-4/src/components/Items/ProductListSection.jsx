@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { ProductList } from './ProductList';
-import { Pagination } from './Pagination';
+import { Pagination } from '../Pagination/Pagination';
 import { useDebouncedCallback } from 'use-debounce';
-import searchIcon from '../assets/icons/search.svg';
-import arrowDown from '../assets/icons/arrow-down.svg';
+import searchIcon from '../../assets/icons/search.svg';
+import arrowDown from '../../assets/icons/arrow-down.svg';
 
 const DELAY = 500;
 

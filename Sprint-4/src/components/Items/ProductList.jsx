@@ -1,6 +1,6 @@
-import likeIcon from '../assets/icons/like.svg'; // './assets/icons/like.svg'
+import likeIcon from '../../assets/icons/like.svg'; // './assets/icons/like.svg'
 import { useState, useEffect } from 'react';
-import { priceFormat } from '../utils/format';
+import { priceFormat } from '../../utils/format';
 
 export function ProductList({ orderBy, keyword }) {
   const [products, setProducts] = useState([]);

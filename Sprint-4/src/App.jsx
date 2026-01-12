@@ -1,8 +1,8 @@
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { BestProductList } from './components/BestProductList';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
+import { BestProductList } from './components/Items/BestProductList';
 import likeIcon from './assets/icons/like.svg';
-import { ProductListSection } from './components/ProductListSection';
+import { ProductListSection } from './components/Items/ProductListSection';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import logo from '../assets/logo-with-text.svg'; // '../assets/logo.png'
+import logo from '../../assets/logo-with-text.svg'; // '../assets/logo.png'
 
 export function Header() {
   return (

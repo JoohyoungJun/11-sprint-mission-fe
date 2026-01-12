@@ -1,7 +1,7 @@
-import facebookLogo from '../assets/icons/facebook.svg';
-import twitterLogo from '../assets/icons/twitter.svg';
-import youtubeLogo from '../assets/icons/youtube.svg';
-import instagramLogo from '../assets/icons/instagram.svg';
+import facebookLogo from '../../assets/icons/facebook.svg';
+import twitterLogo from '../../assets/icons/twitter.svg';
+import youtubeLogo from '../../assets/icons/youtube.svg';
+import instagramLogo from '../../assets/icons/instagram.svg';
 
 export function Footer() {
   return (
@@ -34,19 +34,11 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src={facebookLogo}
-              alt="facebook"
-              className="w-5 h-5"
-            />
+            <img src={facebookLogo} alt="facebook" className="w-5 h-5" />
           </a>
 
           <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
-            <img
-              src={twitterLogo}
-              alt="twitter"
-              className="w-5 h-5"
-            />
+            <img src={twitterLogo} alt="twitter" className="w-5 h-5" />
           </a>
 
           <a
@@ -54,11 +46,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src={youtubeLogo}
-              alt="youtube"
-              className="w-5 h-5"
-            />
+            <img src={youtubeLogo} alt="youtube" className="w-5 h-5" />
           </a>
 
           <a
@@ -66,11 +54,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src={instagramLogo}
-              alt="instagram"
-              className="w-5 h-5"
-            />
+            <img src={instagramLogo} alt="instagram" className="w-5 h-5" />
           </a>
         </div>
       </div>
