@@ -5,6 +5,7 @@ import Img_home_03 from '../../assets/images/Img_home_03.png';
 import Img_home_bottom from '../../assets/images/Img_home_bottom.png';
 
 import styles from './MainPage.module.css';
+import { Link } from 'react-router-dom';
 
 export function MainPage() {
   return (
@@ -18,9 +19,9 @@ export function MainPage() {
               거래해 보세요
             </h2>
             <button className={styles.buttonItems}>
-              <a className={styles.linkItems} href="./items.html">
+              <Link className={styles.linkItems} to="/items">
                 구경하러 가기
-              </a>
+              </Link>
             </button>
           </div>
           <div className={styles.mainTopBoxRight}>
