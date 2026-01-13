@@ -8,7 +8,7 @@ export function Pagination({ totalPageNum, activePageNum, handlePageChange }) {
 
   if (totalPageNum <= maxVisiblePages) {
     startPage = 1;
-  } else {
+  } else { // totalPageNum > 5
     startPage = Math.max(activePageNum - Math.floor(maxVisiblePages / 2), 1);
     startPage = Math.min(startPage, totalPageNum - maxVisiblePages + 1);
   }

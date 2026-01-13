@@ -101,7 +101,7 @@ export function ProductListSection() {
           </div>
 
           <Link
-            to="/add-item"
+            to="/registration"
             className="flex items-center justify-center h-[42px] px-4 rounded-[12px]
               bg-[#3692ff] text-white font-semibold hover:bg-[#1967d6] whitespace-nowrap"
           >
