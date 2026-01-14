@@ -1,5 +1,5 @@
 import logo from '../../assets/logo-with-text.svg'; // '../assets/logo.png'
-import { ItemsPage } from '../Items/ItemsPage';
+import { ItemsPage } from '../ItemsPage/ItemsPage';
 
 export function Header() {
   return (

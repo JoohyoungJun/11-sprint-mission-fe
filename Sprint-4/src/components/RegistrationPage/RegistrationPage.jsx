@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './RegistrationPage.css';
 
+const API_BASE_URL = 'https://panda-market-api.vercel.app/';
+
 export function RegistrationPage() {
   const [product, setProduct] = useState({
     id: '',
@@ -12,6 +14,14 @@ export function RegistrationPage() {
     updatedAt: '',
   });
 
+  // 인풋 검증
+  const isValid =
+    product.name.length > 0 &&
+    product.name.length < 10 &&
+    product.description.length >= 10 &&
+    !isNaN(product.price) &&
+    product.tags.length <= 5;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -21,11 +31,43 @@ export function RegistrationPage() {
     }));
   };
 
+  const handleSubmit = async () => {
+    if (!isValid) {
+      console.log('input value error');
+    }
+
+    const body = {
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      tags: product.tags,
+    };
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/products`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        console.log('res.status: ', res.status);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
-    <form className="registrationWrapper" >
+    <form className="registrationWrapper" onSubmit={(e) => e.preventDefault()}>
       <div className="registrationTop">
         <h1 className="registrationTitle">상품 등록하기</h1>
-        <button type="button" className="registrationButton">
+        <button
+          type="button"
+          className="registrationButton"
+          onClick={handleSubmit}
+          disabled={!isValid}
+        >
           등록
         </button>
       </div>
@@ -47,7 +89,7 @@ export function RegistrationPage() {
 
         <div className="registrationInput">
           <h1 className="registrationTitle">상품 소개</h1>
-          <input
+          <textarea
             placeholder="상품 소개를 입력해주세요"
             id="description"
             name="description"

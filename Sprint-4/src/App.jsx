@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { MainPage } from './components/MainPage/MainPage';
-import { ItemsPage } from './components/Items/ItemsPage';
+import { ItemsPage } from './components/ItemsPage/ItemsPage';
 import { RegistrationPage } from './components/RegistrationPage/RegistrationPage';
 
 function App() {

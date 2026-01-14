@@ -39,7 +39,7 @@ export function ProductListSection() {
     const products = await res.json();
 
     setItemList(products.list);
-    setTotalPageNum(Math.ceil(products.totalCount / pageSize)); // ✅ 핵심
+    setTotalPageNum(Math.ceil(products.totalCount / pageSize));
   };
 
   useEffect(() => {
@@ -112,8 +112,8 @@ export function ProductListSection() {
             <button
               type="button"
               onClick={handleIsOpen}
-              className="flex items-center justify-between h-[42px] px-4 rounded-[12px]
-                bg-[#F3F4F6] text-[#111827] min-w-[120px]"
+              className="flex items-center justify-between h-[42px] !px-4 rounded-[12px]
+                bg-[#F3F4F6] text-[#111827] min-w-[120px] "
             >
               {orderBy === 'recent' ? '최신순' : '좋아요순'}
               <span className="ml-2">
@@ -124,12 +124,17 @@ export function ProductListSection() {
             {isOpen && (
               <ul className="absolute right-0 mt-2 w-full rounded-[12px] bg-white shadow-lg border z-10">
                 <li>
-                  <button type="button" onClick={() => handleOrderBy('recent')}>
+                  <button
+                    className="!px-4"
+                    type="button"
+                    onClick={() => handleOrderBy('recent')}
+                  >
                     최신순
                   </button>
                 </li>
                 <li>
                   <button
+                    className="!px-4"
                     type="button"
                     onClick={() => handleOrderBy('favorite')}
                   >
