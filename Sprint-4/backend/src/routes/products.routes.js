@@ -6,7 +6,8 @@ import { NotFoundException } from '../errors/notFoundException.js';
 export const productsRouter = express.Router();
 
 // GET - /products - 모든 상품 불러오기
-// 이 함수의 동작 원리가 이해가 안가요...
+// 이 함수 도저히 모르겠어서 gpt한테 써달라고 했는데 동작 원리가 이해가 안가요...
+// 프론트엔드에서 이미 페이지네이션을 구현했는데 여기서 따로 하는 이유가 있나요?
 productsRouter.get('/', async (req, res, next) => {
   try {
     const page = Number(req.query.page ?? 1);
@@ -14,8 +15,9 @@ productsRouter.get('/', async (req, res, next) => {
     const keyword = String(req.query.keyword ?? '');
     const orderBy = String(req.query.orderBy ?? 'recent');
 
-    const filter = keyword
+    const filter = keyword // 키워드가 있으면 이름이 키워드거나 설명이 키워드인지를 확인한다...?
       ? {
+          // 이건 Prisma transaction에서 나오는 OR 연산자와 같은 역할을 한다고 이해하면 될까요?
           $or: [
             { name: { $regex: keyword, $options: 'i' } },
             { description: { $regex: keyword, $options: 'i' } },
@@ -23,10 +25,12 @@ productsRouter.get('/', async (req, res, next) => {
         }
       : {};
 
+    // sort 부분에서 recent 일 때 createdAt을 왜 -1로 주는지, 아닐 때는 뭘 줘야 하는지 궁금합니다
     const sort = orderBy === 'recent' ? { createdAt: -1 } : { createdAt: -1 };
-    const skip = (page - 1) * pageSize;
+    const skip = (page - 1) * pageSize; // 몇개 스킵할지 계산하는 공식이라고 오늘 (1/15) 배웠습니다
 
     const [docs, totalCount] = await Promise.all([
+      // 이 부분도 transaction 배우면서 배웠습니다
       Product.find(filter).sort(sort).skip(skip).limit(pageSize),
       Product.countDocuments(filter),
     ]);
@@ -45,6 +49,8 @@ productsRouter.get('/', async (req, res, next) => {
     next(e);
   }
 });
+
+// 여기부터는 특별한 에러가 발생하지 않는 한 최대한 GPT 보지 않고 수업 자료 찾아보며 작성했습니다.
 
 // POST /products - 상품 생성하기
 productsRouter.post('/', async (req, res, next) => {
@@ -77,10 +83,7 @@ productsRouter.post('/', async (req, res, next) => {
   }
 });
 
-/**
- * GET /products/:productId
- * 상세 요구사항: id, name, description, price, tags, createdAt
- */
+//GET /products/:productId - 특정 상품 조회 (id)
 productsRouter.get('/:productId', async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.productId);
@@ -103,7 +106,7 @@ productsRouter.get('/:productId', async (req, res, next) => {
   }
 });
 
-// PATCH /products/:productId - 특정 상품 수정
+// PATCH /products/:productId - 특정 상품 수정 (id)
 productsRouter.patch('/:productId', async (req, res, next) => {
   try {
     const { name, description, price, tags } = req.body;
@@ -142,7 +145,7 @@ productsRouter.patch('/:productId', async (req, res, next) => {
   }
 });
 
-// DELETE /products/:productId - 특정 상품 삭제
+// DELETE /products/:productId - 특정 상품 삭제 (id)
 productsRouter.delete('/:productId', async (req, res, next) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.productId);

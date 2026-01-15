@@ -31,9 +31,13 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  //background-color: #3692ff;
   border-radius: 8px;
   background: var(--Cool-Gray-400, #9ca3af);
+  color: var(--Cool-Gray-100, #f3f4f6);
+}
+
+.registrationButton.active {
+  background-color: #3692ff;
   cursor: pointer;
 }
 

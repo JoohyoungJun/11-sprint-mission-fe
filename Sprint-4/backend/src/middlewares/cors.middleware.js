@@ -10,7 +10,7 @@ export const cors = (req, res, next) => {
 
   if (isAllowed && origin) {
     res.header('Access-Control-Allow-Origin', origin);
-    res.header('Access-Control-Allow-Credentioals', 'true');
+    res.header('Access-Control-Allow-Credentials', 'true');
   } else if (!isProduction) {
     // 개발 환경에서는 모든 경로를 통과
     res.header('Access-Control-Allow-Origin', '*');
@@ -19,7 +19,7 @@ export const cors = (req, res, next) => {
   // 공통 헤더 설정
   res.header(
     'Access-Control-Allow-Methods',
-    'GET, POST PUT PATCH DELETE, OPTIONS'
+    'GET, POST, PUT, PATCH, DELETE, OPTIONS'
   );
 
   res.header(
@@ -28,7 +28,7 @@ export const cors = (req, res, next) => {
   );
 
   if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
+    return res.sendStatus(204);
   }
 
   next();

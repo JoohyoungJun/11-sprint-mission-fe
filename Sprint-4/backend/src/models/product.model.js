@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema(
     name: { type: String, required: true },         // 상품명
     description: { type: String, required: true },  // 소개
     price: { type: Number, required: true },        // 가격
-    tags: { type: String, default: '' },            // 태그(일단 문자열)
+    tags: { type: String, default: '' },            // 태그
   },
   {
     timestamps: true,        // createdAt, updatedAt 자동

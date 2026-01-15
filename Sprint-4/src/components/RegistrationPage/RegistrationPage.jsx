@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import './RegistrationPage.css';
+import { useNavigate } from 'react-router-dom';
 
+//
 const API_BASE_URL = 'https://panda-market-api.vercel.app/';
 
+// test backend port
+const TEST_BACKEND_PORT = 'http://localhost:3000';
 export function RegistrationPage() {
+  const navigate = useNavigate();
+
   const [product, setProduct] = useState({
     id: '',
     name: '',
@@ -16,11 +22,13 @@ export function RegistrationPage() {
 
   // 인풋 검증
   const isValid =
-    product.name.length > 0 &&
-    product.name.length < 10 &&
-    product.description.length >= 10 &&
-    !isNaN(product.price) &&
-    product.tags.length <= 5;
+    product.name.trim().length > 0 &&
+    product.name.trim().length < 10 &&
+    product.description.trim().length >= 10 &&
+    !isNaN(Number(product.price)) &&
+    Number(product.price) > 0 &&
+    product.tags.trim().length > 0 &&
+    product.tags.trim().length <= 5;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +52,7 @@ export function RegistrationPage() {
     };
 
     try {
-      const res = await fetch(`${API_BASE_URL}/products`, {
+      const res = await fetch(`${TEST_BACKEND_PORT}/products`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -53,8 +61,11 @@ export function RegistrationPage() {
       if (!res.ok) {
         console.log('res.status: ', res.status);
       }
+      const created = await res.json();
+      window.alert('상품이 등록되었습니다!');
+      navigate(`/items/${created.id}`);
     } catch (err) {
-      console.error(err);
+      console.error('POST 실패', err);
     }
   };
 
@@ -64,7 +75,7 @@ export function RegistrationPage() {
         <h1 className="registrationTitle">상품 등록하기</h1>
         <button
           type="button"
-          className="registrationButton"
+          className={`registrationButton ${isValid ? 'active' : ''}`}
           onClick={handleSubmit}
           disabled={!isValid}
         >

@@ -23,7 +23,7 @@ app.use(errorHandler);
 // DB 연결
 await connectDB();
 
-const server = app.listen(config.PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`server running on http://localhost:${PORT}`);
 });
 
