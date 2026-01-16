@@ -6,7 +6,7 @@ import { connectDB, disconnectDB } from './db/index.js';
 import { errorHandler } from './middlewares/errorHandler.middleware.js';
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 // JSON 파싱
 app.use(express.json());

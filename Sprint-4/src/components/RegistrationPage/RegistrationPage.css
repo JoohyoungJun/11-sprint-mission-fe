@@ -67,6 +67,10 @@ textarea {
   height: 282px;
 }
 
+.invalidInput {
+  border: 1px solid var(--error-red, #f74747);
+}
+
 .errMessage {
   color: var(--error-red, #f74747);
   font-family: Pretendard;

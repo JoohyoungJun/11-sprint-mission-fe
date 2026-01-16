@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+env.*
+
 env
 pages
 
@@ -25,3 +27,6 @@ pages
 *.njsproj
 *.sln
 *.sw?
+
+
+**/.DS_Store

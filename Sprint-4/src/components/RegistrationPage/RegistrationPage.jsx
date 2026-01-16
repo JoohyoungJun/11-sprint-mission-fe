@@ -92,6 +92,7 @@ export function RegistrationPage() {
             name="name"
             value={product.name}
             onChange={handleChange}
+            className={product.name.trim().length > 10 ? 'invalidInput' : ''}
           />
           {product.name.length > 10 && (
             <p className="errMessage">10자 이내로 입력해주세요</p>
@@ -106,6 +107,9 @@ export function RegistrationPage() {
             name="description"
             value={product.description}
             onChange={handleChange}
+            className={
+              product.description.trim().length < 10 ? 'invalidInput' : ''
+            }
           />
           {product.description.length < 10 && (
             <p className="errMessage">10자 이상 입력해주세요</p>
@@ -120,6 +124,9 @@ export function RegistrationPage() {
             name="price"
             value={product.price}
             onChange={handleChange}
+            className={
+              isNaN(product.price) || product.price < 0 ? 'invalidInput' : ''
+            }
           />
           {isNaN(product.price) && (
             <p className="errMessage">숫자로 입력해주세요</p>
@@ -134,6 +141,7 @@ export function RegistrationPage() {
             name="tags"
             value={product.tags}
             onChange={handleChange}
+            className={product.tags.trim().length > 5 ? 'invalidInput' : ''}
           />
           {product.tags.length > 5 && (
             <p className="errMessage">5글자 이내로 입력해주세요</p>
