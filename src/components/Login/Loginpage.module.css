@@ -1,0 +1,238 @@
+.loginBox {
+  display: flex;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+}
+
+.loginLogo {
+  width: 396px;
+  height: 132px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loginLogoText {
+  color: var(--brand-blue, #3692ff);
+  font-family: 'ROKAF Sans';
+  font-size: 66.344px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.loginMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
+}
+
+p {
+  color: var(--Secondary-800, #1f2937);
+
+  /* pretendard/lg-16px-medium */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+}
+
+.loginMainTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  color: var(--Secondary-800, #1f2937);
+  /* pretendard/2lg-18px-bold */
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 144.444% */
+}
+
+input {
+  border: 0;
+  display: flex;
+  width: 640px;
+  height: 56px;
+  padding: 16px 24px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--Cool-Gray-100, #f3f4f6);
+}
+
+input::placeholder {
+  color: var(--Secondary-400, #9ca3af);
+  /* pretendard/lg-16px-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.buttonSubmitLogin,
+.buttonSubmitSignup {
+  width: 640px;
+  height: 56px;
+  border-radius: 40px;
+  background: var(--Secondary-400, #9ca3af);
+  /* pretendard/xl-20px-semibold */
+  color: var(--Cool-Gray-100, #f3f4f6);
+  text-align: center;
+  justify-content: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 160% */
+}
+
+.buttonSubmitLogin:not(:disabled):hover,
+.buttonSubmitSignup:not(:disabled):hover {
+  background-color: #3692ff;
+}
+
+.buttonSubmitLogin:disabled,
+.buttonSubmitSignup:disabled {
+  background: var(--Cool-Gray-400, #9ca3af);
+  cursor: not-allowed;
+}
+
+.loginMainMid {
+  width: 640px;
+  height: 74px;
+  padding: 16px 23px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 8px;
+  background: #e6f2ff;
+}
+
+.midContainer {
+  display: flex;
+  width: 594px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginLogos {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.iconGoogle,
+.iconKakao {
+  width: 42px;
+  height: 42px;
+}
+
+.loginMainBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.bottomP,
+.bottomLink {
+  color: var(--Secondary-800, #1f2937);
+
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.bottomP {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.bottomLink {
+  color: var(--Primary-100, #3692ff);
+  font-size: 14px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+@media (max-width: 743px) {
+  .loginBox {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .loginLogo {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .loginMain,
+  .loginMainTop,
+  .inputs,
+  label {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  input,
+  .buttonSubmitLogin,
+  .buttonSubmitSignup,
+  .loginMainMid {
+    width: 100%;
+  }
+
+  .midContainer {
+    width: 100%;
+  }
+}
+
+/* error msg */
+.errMsg {
+  color: var(--error-red, #f74747);
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 2px;
+}
+
+.inputError {
+  color: #f74747;
+  border: 1px solid #f74747 !important;
+}

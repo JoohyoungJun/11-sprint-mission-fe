@@ -1,0 +1,82 @@
+.registrationWrapper {
+  margin: 24px auto 76px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.registrationTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  align-self: stretch;
+}
+
+.registrationTitle {
+  font-family: Pretendard;
+  font-size: 20px;
+  font-size: normal;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.registrationButton {
+  display: flex;
+  height: 42px;
+  padding: 12px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--Cool-Gray-400, #9ca3af);
+  color: var(--Cool-Gray-100, #f3f4f6);
+}
+
+.registrationButton.active {
+  background-color: #3692ff;
+  cursor: pointer;
+}
+
+.registrationContents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+}
+
+input,
+textarea {
+  width: 100%;
+  display: flex;
+  height: 56px;
+  padding: 16px 24px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: var(--Cool-gray-100, #f3f4f6);
+}
+
+textarea {
+  height: 282px;
+}
+
+.invalidInput {
+  border: 1px solid var(--error-red, #f74747);
+}
+
+.errMessage {
+  color: var(--error-red, #f74747);
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 5px;
+}
